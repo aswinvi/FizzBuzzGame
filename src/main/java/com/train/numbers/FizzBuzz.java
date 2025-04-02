@@ -1,5 +1,8 @@
 package com.train.numbers;
 
+import java.util.function.Consumer;
+import java.util.stream.IntStream;
+
 public class FizzBuzz {
 
 	private static final String BUZZ = "Buzz";
@@ -26,4 +29,12 @@ public class FizzBuzz {
 		return input % 5 == 0;
 	}
 
+	public void printResultForRangeOfNumbers(int maxRange) {
+		IntStream.rangeClosed(1, maxRange).mapToObj(this::compute).forEach(printResult());
+	}
+	
+	private Consumer<? super String> printResult() {
+		return System.out::println;
+	}
+	
 }
