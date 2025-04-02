@@ -38,6 +38,10 @@ class FizzBuzzTest {
 	void should_Return_Buzz_If_Number_Given_Is_Divisible_By_5() {
 		assertEquals("Buzz", fizzBuzz.compute(20));
 	}
-
+	
+	@Test
+	void should_Return_FizzBuzz_If_Number_Given_Is_Divisible_By_5and3() {
+		assertEquals("FizzBuzz", fizzBuzz.compute(15));
+	}
 
 }
