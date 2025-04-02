@@ -1,9 +1,9 @@
 package com.train.numbers;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class FizzBuzzTest {
 
@@ -14,34 +14,11 @@ class FizzBuzzTest {
 		fizzBuzz = new FizzBuzz();
 	}
 
-	@Test
-	void should_Return_Same_Number_Given() {
-		assertEquals("2", fizzBuzz.compute(2));
-	}
-	
-	@Test
-	void should_Return_Fizz_If_Number_Given_Is_3() {
-		assertEquals("Fizz", fizzBuzz.compute(3));
-	}
-	
-	@Test
-	void should_Return_Buzz_If_Number_Given_Is_5() {
-		assertEquals("Buzz", fizzBuzz.compute(5));
-	}
-	
-	@Test
-	void should_Return_Fizz_If_Number_Given_Is_Divisible_By_3() {
-		assertEquals("Fizz", fizzBuzz.compute(9));
-	}
-	
-	@Test
-	void should_Return_Buzz_If_Number_Given_Is_Divisible_By_5() {
-		assertEquals("Buzz", fizzBuzz.compute(20));
-	}
-	
-	@Test
-	void should_Return_FizzBuzz_If_Number_Given_Is_Divisible_By_5and3() {
-		assertEquals("FizzBuzz", fizzBuzz.compute(15));
+	@ParameterizedTest
+	@CsvSource(value = { "2:2", "3:Fizz", "5:Buzz", "9:Fizz","20:Buzz", "15:FizzBuzz", "22:22" }, delimiter = ':')
+	void test_should_return_asper_FizzBuzz_Logic(int input, String expected) {
+
+		Assertions.assertEquals(expected, fizzBuzz.compute(input));
 	}
 
 }
