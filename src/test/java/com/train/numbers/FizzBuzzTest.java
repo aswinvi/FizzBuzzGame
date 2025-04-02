@@ -23,5 +23,11 @@ class FizzBuzzTest {
 	void should_Return_Fizz_If_Number_Given_Is_3() {
 		assertEquals("Fizz", fizzBuzz.compute(3));
 	}
+	
+	@Test
+	void should_Return_Buzz_If_Number_Given_Is_5() {
+		assertEquals("Buzz", fizzBuzz.compute(5));
+	}
+
 
 }
